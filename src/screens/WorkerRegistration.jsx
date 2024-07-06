@@ -1,10 +1,10 @@
 import LanguageSelector from "../components/LanguageSelector";
 import { FcGoogle, FcPhone } from "react-icons/fc";
-const LoginScreen = () => {
+const WorkerRegistration = () => {
   return (
     <div className="bg-bgColor md:flex  justify-center p-10">
-      <div className="">
-        <div className="bg-primary flex gap-1 py-2 px-2 pb-10 rounded-tl-lg rounded-bl-lg">
+      <div className=" bg-primary rounded-tl-lg rounded-bl-lg ">
+        <div className="bg-primary flex gap-1 py-2 px-2 pb-10">
           <img className="h-10" src="src/assets/logo.png" alt="logo" />
           <img
             className="mt-2"
@@ -13,8 +13,8 @@ const LoginScreen = () => {
           />
         </div>
         <img
-          className="hidden w-full  object-contain md:block"
-          src="src/assets/employer_registration.png"
+          className="hidden  overflow-hidden object-cover md:block"
+          src="src/assets/worker_registration.png"
           alt="working worker"
         />
       </div>
@@ -22,13 +22,17 @@ const LoginScreen = () => {
       <div className="bg-white rounded-2xl md:ml-[-2rem] px-10 py-5 ">
         <div className="flex flex-row justify-between ">
           <h3 className="font-semibold md:text-4xl text-2xl px-4 md:mt-10 mt-5 py-1 text-secondary">
-            Login
+            Worker Registration
           </h3>
           {/* language */}
           <span className="hidden md:block"><LanguageSelector /></span>
         </div>
         <form className="">
-          
+          <input
+            className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
+            type="text"
+            placeholder="Full Name"
+          />
           <input
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
             type="text"
@@ -39,7 +43,11 @@ const LoginScreen = () => {
             type="text"
             placeholder="Password"
           />
-          
+          <input
+            className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
+            type="text"
+            placeholder="Confirm Password"
+          />
         </form>
         <div className="text-center p-5">
           <input type="checkbox" name="" id="" />
@@ -49,10 +57,10 @@ const LoginScreen = () => {
         </div>
         <div className="md:flex block justify-end gap-5">
           <button className="text-black hidden md:block  bg-slate-600 font-semibold rounded-lg px-5 py-2 hover:brightness-110">
-            Signup
+            Cancel
           </button>
           <button className="text-white w-full md:w-auto bg-primary font-semibold rounded-lg px-5 py-2 hover:brightness-110">
-            Login
+            Submit
           </button>
         </div>
         <p className="text-center mt-3">Or</p>
@@ -89,4 +97,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default WorkerRegistration;
