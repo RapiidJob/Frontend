@@ -25,10 +25,11 @@ const LoginScreen = () => {
             Login
           </h3>
           {/* language */}
-          <span className="hidden md:block"><LanguageSelector /></span>
+          <span className="hidden md:block">
+            <LanguageSelector />
+          </span>
         </div>
         <form className="">
-          
           <input
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
             type="text"
@@ -39,7 +40,6 @@ const LoginScreen = () => {
             type="text"
             placeholder="Password"
           />
-          
         </form>
         <div className="text-center p-5">
           <input type="checkbox" name="" id="" />
@@ -76,14 +76,16 @@ const LoginScreen = () => {
             </span>
           </div>
         </div>
-        
+
         <div className="flex gap-2 justify-center md:mt-16 relative ">
           <p className="text-center text-tertiary">Already have an account?</p>
           <a href="/login" className="no-underline text-primary font-semibold">
             Login
           </a>
         </div>
-          <span className="flex justify-end md:hidden"><LanguageSelector /></span>
+        <span className="flex justify-end md:hidden">
+          <LanguageSelector />
+        </span>
       </div>
     </div>
   );
