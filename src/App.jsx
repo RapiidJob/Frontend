@@ -1,8 +1,12 @@
-
-
+// import WorkerRegistration from "./screens/WorkerRegistration"
+// import EmployerRegistration from "./screens/EmployerRegistration"
+import LoginScreen from "./screens/LoginScreen"
 const App = () => {
   return (
-    <div className="text-blue-400 text-center">
+    <div>
+      {/* <WorkerRegistration/> */}
+      {/* <EmployerRegistration/> */}
+      <LoginScreen/>
       
     </div>
   )
