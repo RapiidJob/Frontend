@@ -1,8 +1,13 @@
 
+import Navbar from "../components/Navbar";
+import section from "../components/sectionsOfLandingScreen/index"
 const HomeScreen = () => {
   return (
-    <div>HomeScreen</div>
-  )
+    <div className="bg-primary h-[200] pb-[1rem] overflow-clip">
+      <Navbar />
+      <section.Hero/>
+    </div>
+  );
 }
 
-export default HomeScreen
+export default HomeScreen;
