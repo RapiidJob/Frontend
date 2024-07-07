@@ -1,15 +1,18 @@
-// import WorkerRegistration from "./screens/WorkerRegistration"
-// import EmployerRegistration from "./screens/EmployerRegistration"
-import LoginScreen from "./screens/LoginScreen"
-const App = () => {
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import screen from "./screens/index";
+
+function App() {
   return (
-    <div>
-      {/* <WorkerRegistration/> */}
-      {/* <EmployerRegistration/> */}
-      <LoginScreen/>
-      
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/login" element={<screen.login />} />
+          <Route path="/register" element={<screen.employerRegistration />} />
+          <Route path="/" element={<screen.home />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
-export default App
+export default App;

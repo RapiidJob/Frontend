@@ -11,7 +11,9 @@ export default {
         secondary: "#2563EB",
         tertiary:"#BEBCBC",
         bgColor:"#F5F5F5",
-        
+      },
+      fontFamily: {
+        'abhaya': ['"Abhaya Libre"', 'serif'],
       },
     },
   },
