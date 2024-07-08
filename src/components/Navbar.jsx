@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from "../assets/landingPage/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const Navbar = () => {
+const Navbar = ({co}) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  useEffect(()=>{
+    console.log("co",co)
+  },[co])
   const toggleSlider = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <>
-      <nav className="flex justify-between p-[1rem] pr-[2.5rem] pl-[2.5rem] box-border items-center">
+      <nav className={`bg-[#${co}] flex justify-between p-[1rem] pr-[2.5rem] pl-[2.5rem] box-border items-center`} >
         <img src={logo} className="w-[250px] m-0" alt="Logo" />
         <ul className="flex gap-10 items-center justify-center text-white max-xl:hidden">
           <li className="cursor-pointer">Home</li>

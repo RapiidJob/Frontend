@@ -6,7 +6,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className="flex justify-between h-[100%]">
+    <div className="bg-primary pb-[1rem] flex justify-between h-[100%]">
         <div className="flex flex-col justify-evenly items-center w-[100%] gap-[1rem]">
           <div className="w-[30rem] max-sm:w-[20rem] m-0">
             <h1 className="text-[50px] text-[#fff] font-abhaya font-bold max-sm:text-[20px] m-0">
