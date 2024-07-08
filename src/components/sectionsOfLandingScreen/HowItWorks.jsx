@@ -4,9 +4,9 @@ import one from '../../assets/landingPage/one.svg'
 import two from '../../assets/landingPage/two.svg'
 import three from '../../assets/landingPage/three.svg'
 
-const HowItWorks = () => {
+const HowItWorks = ({id}) => {
   return (
-    <div className='p-10 grid items-center justify-center gap-12'>
+    <section id={id} className='p-10 grid items-center justify-center gap-12'>
       <h1 className='text-center font-abhaya text-[36px] max-sm:text-[26px] font-[700]'>
         Find jobs with 3 easy steps
       </h1>
@@ -62,7 +62,7 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

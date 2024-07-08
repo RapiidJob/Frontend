@@ -21,13 +21,20 @@ const HomeScreen = () => {
     };
   }, []);
 
+  const handleScrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="h-[200] overflow-clip">
-      <div className={`sticky top-0 z-50 `}>
-        <Navbar co = {isScrolled?"263238":"275ED9"}/>
+      <div className={`sticky top-0 z-50`}>
+        <Navbar co={"275ED9"} onNavItemClick={handleScrollToSection} />
       </div>
-      <section.Hero />
-      <section.HowItWorks />
+      <section.Hero id="hero-section" />
+      <section.HowItWorks id="how-it-works-section" />
     </div>
   );
 }
