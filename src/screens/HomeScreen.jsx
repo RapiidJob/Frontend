@@ -35,6 +35,7 @@ const HomeScreen = () => {
       </div>
       <section.Hero id="hero-section" />
       <section.HowItWorks id="how-it-works-section" />
+      <section.PopularJobs id="popular-jobs-section" />
     </div>
   );
 }
