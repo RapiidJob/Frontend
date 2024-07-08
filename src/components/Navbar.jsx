@@ -26,7 +26,7 @@ const Navbar = ({ co, onNavItemClick }) => {
             How it Works
             <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
-          <li className="cursor-pointer relative group">
+          <li className="cursor-pointer relative group" onClick={() => onNavItemClick('popular-jobs-section')}>
             Services
             <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
@@ -67,7 +67,7 @@ const Navbar = ({ co, onNavItemClick }) => {
             How it Works
             <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
-          <li className="cursor-pointer relative group">
+          <li className="cursor-pointer relative group" onClick={() => onNavItemClick('popular-jobs-section')}>
             Services
             <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
