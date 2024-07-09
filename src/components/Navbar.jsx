@@ -15,7 +15,7 @@ const Navbar = ({ co, onNavItemClick }) => {
 
   return (
     <>
-      <nav className={`bg-[#${co}] flex justify-between p-[1rem] pr-[2.5rem] pl-[2.5rem] box-border items-center`}>
+      <nav className={`bg-primary flex justify-between p-[1rem] pr-[2.5rem] pl-[2.5rem] box-border items-center`}>
         <img src={logo} className="w-[250px] m-0" alt="Logo" />
         <ul className="flex gap-10 items-center justify-center text-white max-xl:hidden">
           <li className="cursor-pointer relative group" onClick={() => onNavItemClick('hero-section')}>
