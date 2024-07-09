@@ -36,6 +36,7 @@ const HomeScreen = () => {
       <section.Hero id="hero-section" />
       <section.HowItWorks id="how-it-works-section" />
       <section.PopularJobs id="popular-jobs-section" />
+      <section.LatestUpdates id="latest-updates-section" />
     </div>
   );
 }
