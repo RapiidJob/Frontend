@@ -1,6 +1,61 @@
-import LanguageSelector from "../components/LanguageSelector";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { FcGoogle, FcPhone } from "react-icons/fc";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import LanguageSelector from "../components/LanguageSelector";
+
+// import {loginUser, selectIsLoggedIn, setError } from ''
+import { setLoading,setUser, selectIsLoggedIn  } from "../features/auth/authSlice";
+
 const LoginScreen = () => {
+  const navigate = useNavigate()
+  const [error, setError] = useState("")
+  const [agreed, setAgreed] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  useEffect(()=>{
+    if(isLoggedIn){
+      navigate("/")
+    }
+
+  },[isLoggedIn, navigate])
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    dispatch(setLoading(true));
+    try {
+      const response = await axios.post('http://localhost:8000/accounts/login/', {
+        email,
+        password,
+      });
+
+      console.log(response.data)
+  
+      // Assuming your backend returns user data and token upon successful login
+      const { user, token } = response.data;
+      // console.log("hello")
+      console.log(user)
+      console.log(token.access)
+  
+      // Save token to local storage or cookie for persistent login
+      localStorage.setItem('token', token.access);
+      // Update Redux state with authenticated user
+      dispatch(setUser({ user }));
+      dispatch(setLoading(false))
+      navigate("/")
+    } catch (error) {
+      // const er = error.response.data
+      // console.log(er)
+      // dispatch(setError('Login failed'));
+      setError("Login failed! ")
+      dispatch(setLoading(false))
+    }
+  };
   return (
     <div className="bg-bgColor md:flex  justify-center p-10">
       <div className="">
@@ -29,29 +84,43 @@ const LoginScreen = () => {
             <LanguageSelector />
           </span>
         </div>
+        <p>{}</p>
         <form className="">
           <input
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
             type="text"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
-            type="text"
+            type="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </form>
         <div className="text-center p-5">
-          <input type="checkbox" name="" id="" />
-          <span className="text-tertiary text-sm px-2">
+          <input
+            type="checkbox"
+            id="agree"
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+          />
+          <label htmlFor="agree" className="text-tertiary text-sm px-2">
             I have read and agreed to the Terms of Service and Privacy Policy
-          </span>
+          </label>
         </div>
         <div className="md:flex block justify-end gap-5">
-          <button className="text-black hidden md:block  bg-slate-600 font-semibold rounded-lg px-5 py-2 hover:brightness-110">
-            Signup
-          </button>
-          <button className="text-white w-full md:w-auto bg-primary font-semibold rounded-lg px-5 py-2 hover:brightness-110">
+          <button
+            type="submit"
+            disabled={!agreed}
+            onClick={handleLogin}
+            className={`text-white w-full md:w-auto bg-primary font-semibold rounded-lg px-5 py-2 hover:brightness-110 ${
+              !agreed ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
             Login
           </button>
         </div>
@@ -61,7 +130,7 @@ const LoginScreen = () => {
             <span className="flex gap-2 justify-center md:border-none text-tertiary border bg-bgColor md:bg-transparent px-5 py-3 md:px-0 md:py-0 rounded-lg md:rounded-none ">
               <FcGoogle className="mt-1" />{" "}
               <a href="">
-                <span className="hidden md:inline-block">Signup with</span>{" "}
+                <span className="hidden md:inline-block">Login with</span>{" "}
                 Google
               </a>
             </span>
@@ -70,7 +139,7 @@ const LoginScreen = () => {
             <span className="flex gap-2 justify-center md:border-none text-tertiary border bg-bgColor md:bg-transparent px-5 py-3 md:px-0 md:py-0 rounded-lg md:rounded-none ">
               <FcPhone className="mt-1" />
               <a href="">
-                <span className="hidden  md:inline-block">Signup with</span>{" "}
+                <span className="hidden  md:inline-block">Login with</span>{" "}
                 Phone
               </a>
             </span>
@@ -78,10 +147,12 @@ const LoginScreen = () => {
         </div>
 
         <div className="flex gap-2 justify-center md:mt-16 relative ">
-          <p className="text-center text-tertiary">Already have an account?</p>
-          <a href="/login" className="no-underline text-primary font-semibold">
-            Login
-          </a>
+          <p className="text-center text-tertiary">
+            Don&rsquo; you have an account?
+          </p>
+          <Link to="/worker_register" className="no-underline text-primary font-semibold">
+            Signup
+          </Link>
         </div>
         <span className="flex justify-end md:hidden">
           <LanguageSelector />

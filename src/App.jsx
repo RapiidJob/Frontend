@@ -1,18 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import screen from "./screens/index";
-
+import { ToastContainer } from "react-toastify";
+import { Outlet } from "react-router-dom";
 function App() {
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/login" element={<screen.login />} />
-          <Route path="/register" element={<screen.employerRegistration />} />
-          <Route path="/" element={<screen.home />} />
-        </Routes>
-      </div>
-    </Router>
-  )
+    <>
+      <ToastContainer />
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
