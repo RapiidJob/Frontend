@@ -3,14 +3,16 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { FcGoogle, FcPhone } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import LanguageSelector from "../components/LanguageSelector";
 
 // import {loginUser, selectIsLoggedIn, setError } from ''
-import { setError,setLoading,setUser, selectIsLoggedIn  } from "../features/auth/authSlice";
+import { setLoading,setUser, selectIsLoggedIn  } from "../features/auth/authSlice";
 
 const LoginScreen = () => {
   const navigate = useNavigate()
+  const [error, setError] = useState("")
   const [agreed, setAgreed] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,17 +38,21 @@ const LoginScreen = () => {
   
       // Assuming your backend returns user data and token upon successful login
       const { user, token } = response.data;
+      // console.log("hello")
+      console.log(user)
+      console.log(token.access)
   
       // Save token to local storage or cookie for persistent login
-      localStorage.setItem('token', token);
+      localStorage.setItem('token', token.access);
       // Update Redux state with authenticated user
       dispatch(setUser({ user }));
       dispatch(setLoading(false))
       navigate("/")
-      console.log("hello")
-  
     } catch (error) {
-      dispatch(setError(error.message || 'Login failed'));
+      // const er = error.response.data
+      // console.log(er)
+      // dispatch(setError('Login failed'));
+      setError("Login failed! ")
       dispatch(setLoading(false))
     }
   };
