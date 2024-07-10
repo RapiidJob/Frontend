@@ -7,7 +7,8 @@ function App() {
       <div>
         <Routes>
           <Route path="/login" element={<screen.login />} />
-          <Route path="/register" element={<screen.employerRegistration />} />
+          <Route path="/employer_register" element={<screen.employerRegistration />} />
+          <Route path="/worker_register" element={<screen.workerRegistration />} />
           <Route path="/" element={<screen.home />} />
         </Routes>
       </div>

@@ -1,6 +1,26 @@
+import axios from "axios";
 import LanguageSelector from "../components/LanguageSelector";
+import { useState } from "react";
 import { FcGoogle, FcPhone } from "react-icons/fc";
 const WorkerRegistration = () => {
+
+  const [agreed, setAgreed] = useState(false);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const handleRegistration = async () => {
+    try {
+      const res = await axios.post("http://127.0.0.1:8000/accounts/register", {
+        email,
+        password,
+        account_type:Worker
+      });
+      console.log(res.data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="bg-bgColor md:flex  justify-center p-10">
       <div className=" bg-primary rounded-tl-lg rounded-bl-lg ">
@@ -34,35 +54,50 @@ const WorkerRegistration = () => {
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
             type="text"
             placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
             type="text"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
-            type="text"
+            type="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <input
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
-            type="text"
+            type="password"
             placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </form>
         <div className="text-center p-5">
-          <input type="checkbox" name="" id="" />
-          <span className="text-tertiary text-sm px-2">
+          <input
+            type="checkbox"
+            id="agree"
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+          />
+          <label htmlFor="agree" className="text-tertiary text-sm px-2">
             I have read and agreed to the Terms of Service and Privacy Policy
-          </span>
+          </label>
         </div>
         <div className="md:flex block justify-end gap-5">
-          <button className="text-black hidden md:block  bg-slate-600 font-semibold rounded-lg px-5 py-2 hover:brightness-110">
-            Cancel
-          </button>
-          <button className="text-white w-full md:w-auto bg-primary font-semibold rounded-lg px-5 py-2 hover:brightness-110">
-            Submit
+          <button type="submit"
+            disabled={!agreed}
+            onClick={handleRegistration}
+            className={`text-white w-full md:w-auto bg-primary font-semibold rounded-lg px-5 py-2 hover:brightness-110 ${
+              !agreed ? "opacity-50 cursor-not-allowed" : ""
+            }`}>
+            Signup
           </button>
         </div>
         <p className="text-center mt-3">Or</p>

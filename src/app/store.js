@@ -11,7 +11,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import authReducer from '../features/auth/authSlice'
-import jobsReducer from '../features/jobs/jobsSlice'
+import jobsReducer from '../features/jobs/jobSlice'
 
 const persistConfig = {
   key: 'root',
