@@ -11,30 +11,34 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import HomeScreen from "./screens/HomeScreen.jsx";
-import PrivateRoute from "./components/PrivateRoute.jsx";
-import LoginScreen from "./screens/LoginScreen.jsx";
-import EmployerRegistration from "./screens/EmployerRegistration.jsx";
-import WorkerRegistration from "./screens/WorkerRegistration.jsx";
-import ResetScreen from "./screens/ResetScreen.jsx";
+
+import i18n from './i18n';
+import PrivateRoute from "./components/PrivateRoute.jsx"
+import screen from "./screens/index.js";
 import NotFoundScreen from "./screens/NotFoundScreen.jsx";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route index={true} path="/" element={<HomeScreen />} />
-      <Route path="/" element={<HomeScreen />} />
-      <Route path="/login" element={<LoginScreen />} />
-      <Route path="/employer_register" element={<EmployerRegistration />} />
-      <Route path="/worker_register" element={<WorkerRegistration />} />
-      <Route path="/verification/:userId" element={<WorkerRegistration />} />
-      <Route path="/reset" element={<ResetScreen />} />
+      <Route index={true} path="/" element={<screen.HomeScreen />} />
+      <Route path="/" element={<screen.HomeScreen />} />
+      <Route path="/login" element={<screen.LoginScreen />} />
+      <Route path="/employer_register" element={<screen.EmployerRegistration />} />
+      <Route path="/worker_register" element={<screen.WorkerRegistration />} />
+
       {/* Registered users */}
       <Route path="" element={<PrivateRoute />}>
-        <Route path="/hiddenpage" element={<HomeScreen />} />
+        <Route path="/hiddenpage" element={<screen.HomeScreen />} />
       </Route>
+
+        <Route path="" element={<screen.Layout />}>
+          <Route path="/findJob" element={<screen.FindJob />} />
+        </Route>
+
       {/* Catch all other routes */}
       <Route path="*" element={<NotFoundScreen />} /> {/* Add the 404 route */}
       
+
     </Route>
   )
 );
