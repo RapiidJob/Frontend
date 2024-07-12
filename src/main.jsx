@@ -16,6 +16,8 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import LoginScreen from "./screens/LoginScreen.jsx";
 import EmployerRegistration from "./screens/EmployerRegistration.jsx";
 import WorkerRegistration from "./screens/WorkerRegistration.jsx";
+import ResetScreen from "./screens/ResetScreen.jsx";
+import NotFoundScreen from "./screens/NotFoundScreen.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -24,10 +26,14 @@ const router = createBrowserRouter(
       <Route path="/login" element={<LoginScreen />} />
       <Route path="/employer_register" element={<EmployerRegistration />} />
       <Route path="/worker_register" element={<WorkerRegistration />} />
+      <Route path="/verification/:userId" element={<WorkerRegistration />} />
+      <Route path="/reset" element={<ResetScreen />} />
       {/* Registered users */}
       <Route path="" element={<PrivateRoute />}>
         <Route path="/hiddenpage" element={<HomeScreen />} />
       </Route>
+      {/* Catch all other routes */}
+      <Route path="*" element={<NotFoundScreen />} /> {/* Add the 404 route */}
       
     </Route>
   )

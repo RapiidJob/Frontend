@@ -1,24 +1,42 @@
 import axios from "axios";
 import LanguageSelector from "../components/LanguageSelector";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FcGoogle, FcPhone } from "react-icons/fc";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../features/auth/authSlice";
 const WorkerRegistration = () => {
-
+  const BaseUrl = import.meta.env.VITE_API_BASE_URL
+  const navigate = useNavigate()
+  const [error, setError] = useState("")
   const [agreed, setAgreed] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("")
+  const dispatch = useDispatch()
+  const isloading = useSelector((state)=>state.auth.loading)
   const handleRegistration = async () => {
+    if (password != confirmPassword){
+      setError("password does not match")
+    }
+    dispatch(setLoading(true))
+
     try {
-      const res = await axios.post("http://127.0.0.1:8000/accounts/register", {
+      const res = await axios.post(`${BaseUrl}/accounts/register/`, {
         email,
         password,
+        first_name:name,
         account_type:Worker
       });
       console.log(res.data)
+      navigate("/login")
+      dispatch(setLoading(false))
     } catch (error) {
-      console.log(error);
+      
+      // console.log(error);
+      setError(JSON.stringify(error.response.data))
+      dispatch(setLoading(false))
     }
   };
   return (
@@ -53,7 +71,7 @@ const WorkerRegistration = () => {
           <input
             className="placeholder:text-tertiary px-5 py-3 block w-full border-b outline-none"
             type="text"
-            placeholder="Full Name"
+            placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -79,6 +97,7 @@ const WorkerRegistration = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </form>
+        <p className="text-center text-red-500 font-semibold w-[400px]">{error}</p>
         <div className="text-center p-5">
           <input
             type="checkbox"
@@ -97,7 +116,7 @@ const WorkerRegistration = () => {
             className={`text-white w-full md:w-auto bg-primary font-semibold rounded-lg px-5 py-2 hover:brightness-110 ${
               !agreed ? "opacity-50 cursor-not-allowed" : ""
             }`}>
-            Signup
+            {isloading?"Signup...":<>Signup</>}
           </button>
         </div>
         <p className="text-center mt-3">Or</p>
