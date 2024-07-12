@@ -11,9 +11,11 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+
 import i18n from './i18n';
 import PrivateRoute from "./components/PrivateRoute.jsx"
 import screen from "./screens/index.js";
+import NotFoundScreen from "./screens/NotFoundScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,13 +25,20 @@ const router = createBrowserRouter(
       <Route path="/login" element={<screen.LoginScreen />} />
       <Route path="/employer_register" element={<screen.EmployerRegistration />} />
       <Route path="/worker_register" element={<screen.WorkerRegistration />} />
+
       {/* Registered users */}
       <Route path="" element={<PrivateRoute />}>
         <Route path="/hiddenpage" element={<screen.HomeScreen />} />
       </Route>
+
         <Route path="" element={<screen.Layout />}>
           <Route path="/findJob" element={<screen.FindJob />} />
         </Route>
+
+      {/* Catch all other routes */}
+      <Route path="*" element={<NotFoundScreen />} /> {/* Add the 404 route */}
+      
+
     </Route>
   )
 );
