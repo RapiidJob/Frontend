@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import people from "../../assets/landingPage/peopleGraphics.png";
 import { FaPlus } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import telegramIcon from '../../assets/socialIcons/telegram.svg';
-import React from 'react'
 
 const Hero = ({ id }) => {
   return (

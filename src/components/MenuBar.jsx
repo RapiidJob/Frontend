@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import logo from '../assets/landingPage/logo.png';
 import { FiPhone, FiSearch, FiMenu } from "react-icons/fi";
@@ -54,7 +54,7 @@ const MenuBar = () => {
                         <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary text-2xl" />
                     </div>
                     <FaBell className="text-xl text-white" />
-                    <img src="path-to-avatar-image" alt="avatar" className="h-10 w-10 rounded-full" />
+                    <img src="https://media.istockphoto.com/id/1407759041/photo/confident-happy-beautiful-hispanic-student-girl-indoor-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=3hNSNk_rbalqc_N2FH2MrtOgJaAOaoDebVnu7x5Qtd0=" alt="avatar" className="h-10 w-10 rounded-full" />
                 </div>
             </div>
             {/* Drawer */}

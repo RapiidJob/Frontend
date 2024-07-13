@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { FiSearch, FiMapPin } from 'react-icons/fi';
 import { CiGrid41, CiGrid2H } from "react-icons/ci";
 
 const jobs = [
   {
     id: 1,
-    avatar: 'https://images.unsplash.com/photo-1523455949465-8100343607f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80',
+    avatar: 'https://media.istockphoto.com/id/1407759041/photo/confident-happy-beautiful-hispanic-student-girl-indoor-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=3hNSNk_rbalqc_N2FH2MrtOgJaAOaoDebVnu7x5Qtd0=',
     person: 'Person 1',
     location: 'Location 1',
     jobType: 'Full-time',
@@ -13,7 +13,8 @@ const jobs = [
   },
   {
     id: 2,
-    avatar: 'https://images.unsplash.com/photo-1523455949465-8100343607f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80',
+    avatar: 'https://media.istockphoto.com/id/1407759041/photo/confident-happy-beautiful-hispanic-student-girl-indoor-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=3hNSNk_rbalqc_N2FH2MrtOgJaAOaoDebVnu7x5Qtd0=',
+    
     person: 'Person 2',
     location: 'Location 2',
     jobType: 'Part-time',
@@ -21,7 +22,8 @@ const jobs = [
   },
   {
     id: 3,
-    avatar: 'https://images.unsplash.com/photo-1523455949465-8100343607f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80',
+    avatar: 'https://media.istockphoto.com/id/1407759041/photo/confident-happy-beautiful-hispanic-student-girl-indoor-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=3hNSNk_rbalqc_N2FH2MrtOgJaAOaoDebVnu7x5Qtd0=',
+    
     person: 'Person 3',
     location: 'Location 3',
     jobType: 'Contract',
@@ -29,7 +31,7 @@ const jobs = [
   },
   {
     id: 3,
-    avatar: 'https://images.unsplash.com/photo-1523455949465-8100343607f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80',
+    avatar: 'https://media.istockphoto.com/id/1407759041/photo/confident-happy-beautiful-hispanic-student-girl-indoor-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=3hNSNk_rbalqc_N2FH2MrtOgJaAOaoDebVnu7x5Qtd0=',
     person: 'Person 3',
     location: 'Location 3',
     jobType: 'Contract',
@@ -37,7 +39,7 @@ const jobs = [
   },
   {
     id: 3,
-    avatar: 'https://images.unsplash.com/photo-1523455949465-8100343607f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80',
+    avatar: 'https://media.istockphoto.com/id/1407759041/photo/confident-happy-beautiful-hispanic-student-girl-indoor-head-shot-portrait.jpg?s=1024x1024&w=is&k=20&c=3hNSNk_rbalqc_N2FH2MrtOgJaAOaoDebVnu7x5Qtd0=',
     person: 'Person 3',
     location: 'Location 3',
     jobType: 'Contract',

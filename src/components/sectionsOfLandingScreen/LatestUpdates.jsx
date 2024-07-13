@@ -1,4 +1,3 @@
-import React from 'react'
 import gmail from '../../assets/socialIcons/gmail.svg';
 
 const LatestUpdates = () => {
