@@ -16,8 +16,8 @@ const MenuBar = () => {
     }, [location]);
 
     const handleToolbarClick = (data) => {
-        setActive(data);
-        navigate(`/${data}`);
+        setActive(data.toLowerCase());
+        navigate(`/${data.toLowerCase()}`);
         setDrawerOpen(false); // Close the drawer when a menu item is clicked
     }
 
@@ -28,7 +28,7 @@ const MenuBar = () => {
                 <ul className="hidden sm:flex space-x-4 flex-wrap">
                     {['Home', 'findjob', 'FindEmployers', 'Dashboard', 'JobAlerts', 'CustomerSupports'].map(item => (
                         <li key={item} 
-                            className={`cursor-pointer ${active === item ? 'border-b-4 border-primary text-primary' : ''} transition duration-300 ease-in-out`} 
+                            className={`cursor-pointer ${active === item.toLowerCase() ? 'border-b-4 border-primary text-primary' : ''} transition duration-300 ease-in-out`} 
                             onClick={() => handleToolbarClick(item)}
                         >
                             <div className='p-2'>{item}</div>
