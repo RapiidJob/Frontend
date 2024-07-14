@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { FiSearch, FiMapPin, FiMap } from 'react-icons/fi';
 import { CiGrid41, CiGrid2H } from "react-icons/ci";
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+
 
 const FindJob = () => {
   const [display, setDisplay] = useState(true);
@@ -13,11 +13,11 @@ const FindJob = () => {
   const [prevUrl, setPrevUrl] = useState(null);
   const [locationEnabled, setLocationEnabled] = useState(false);
   const [userLocation, setUserLocation] = useState({ latitude: null, longitude: null });
-  const [endpoint, setEndPoint] = useState(`https://rapidjob-backend.onrender.com/api/jobs/list?limit=${itemsPerPage}`);
+  const [endpoint, setEndPoint] = useState(`${import.meta.env.VITE_API_BASE_URL}/jobs/list?limit=${itemsPerPage}`);
 
 
   useEffect(() =>{
-    locationEnabled && setEndPoint(`https://rapidjob-backend.onrender.comapi/jobs/search_by_location/?limit=${itemsPerPage}&latitude=${userLocation.latitude}&longitude=${userLocation.longitude}`);
+    locationEnabled && setEndPoint(`${import.meta.env.VITE_API_BASE_URL}/jobs/search_by_location/?limit=${itemsPerPage}&latitude=${userLocation.latitude}&longitude=${userLocation.longitude}`);
   },
 [locationEnabled])
 
@@ -97,8 +97,9 @@ const FindJob = () => {
           <div className="relative w-full max-w-xs">
             <select className="border border-gray-300 bg-white rounded p-4 pl-3 w-full">
               <option value="">Select filter</option>
-              <option value="filter1">Filter 1</option>
-              <option value="filter2">Filter 2</option>
+              <option value="filter1">Latest</option>
+              <option value="filter2">Oldest</option>
+              <option value="filter2">Price</option>
             </select>
           </div>
           <input type="submit" value="Find Job" className="bg-blue-500 text-white p-4 rounded w-full max-w-xs cursor-pointer" />
