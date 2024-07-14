@@ -9,9 +9,9 @@ function Layout() {
       <main>
         <Outlet />
       </main>
-      <footer>
+      {/* <footer>
         <p>Footer content here</p>
-      </footer>
+      </footer> */}
     </div>
   );
 }

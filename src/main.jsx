@@ -12,11 +12,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import i18n from './i18n';
+// import i18n from './i18n';
 import PrivateRoute from "./components/PrivateRoute.jsx"
 import screen from "./screens/index.js";
 import NotFoundScreen from "./screens/NotFoundScreen.jsx";
-
+import DashboardScreen from "./screens/DashboardScreen.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -28,7 +28,9 @@ const router = createBrowserRouter(
 
       {/* Registered users */}
       <Route path="" element={<PrivateRoute />}>
-        <Route path="/hiddenpage" element={<screen.HomeScreen />} />
+        <Route path="" element={<screen.Layout />}>
+          <Route path="/dashboard" element={<DashboardScreen />} />
+        </Route>
       </Route>
 
         <Route path="" element={<screen.Layout />}>
