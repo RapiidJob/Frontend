@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 
 // import i18n from './i18n';
-import PrivateRoute from "./components/PrivateRoute.jsx"
+import PrivateRoute from "./components/PrivateRoute.jsx";
 import screen from "./screens/index.js";
 import NotFoundScreen from "./screens/NotFoundScreen.jsx";
 import DashboardScreen from "./screens/DashboardScreen.jsx";
@@ -23,24 +23,24 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<screen.HomeScreen />} />
       <Route path="/" element={<screen.HomeScreen />} />
       <Route path="/login" element={<screen.LoginScreen />} />
-      <Route path="/employer_register" element={<screen.EmployerRegistration />} />
+      <Route
+        path="/employer_register"
+        element={<screen.EmployerRegistration />}
+      />
       <Route path="/worker_register" element={<screen.WorkerRegistration />} />
-
       {/* Registered users */}
       <Route path="" element={<PrivateRoute />}>
         <Route path="" element={<screen.Layout />}>
           <Route path="/dashboard" element={<DashboardScreen />} />
         </Route>
       </Route>
-
+      <Route path="" element={PrivateRoute}>
         <Route path="" element={<screen.Layout />}>
           <Route path="/findJob" element={<screen.FindJob />} />
         </Route>
-
+      </Route>
       {/* Catch all other routes */}
       <Route path="*" element={<NotFoundScreen />} /> {/* Add the 404 route */}
-      
-
     </Route>
   )
 );
