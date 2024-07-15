@@ -1,4 +1,4 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
 import HowItWorksGraphics from '../../assets/landingPage/howItWorksGraphics.png'
 import one from '../../assets/landingPage/one.svg'
 import two from '../../assets/landingPage/two.svg'

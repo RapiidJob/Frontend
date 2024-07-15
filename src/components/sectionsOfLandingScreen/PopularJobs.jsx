@@ -1,4 +1,5 @@
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PopularJobs = () => {
   return (
@@ -16,13 +17,15 @@ const PopularJobs = () => {
                         { title: 'Insulation worker', jobs: 23 },
                         { title: 'Construction worker Support', jobs: 34 },
                     ].map((job, index) => (
-                        <li key={index} className={`font-abhaya cursor-pointer text-primary group flex justify-between items-center bg-white p-6 rounded shadow transition-colors duration-300 ease-in-out ${index === 0 ? 'bg-green-500' : ''}`}>
+                        <Link key={index} to="/findjob">
+                        <li  className={`font-abhaya cursor-pointer text-primary group flex justify-between items-center bg-white p-6 rounded shadow transition-colors duration-300 ease-in-out ${index === 0 ? 'bg-green-500' : ''}`}>
                             <div>
                                 <h2 className="font-semibold text-[21px]">{job.title}</h2>
                                 <p className="text-gray-500">{job.jobs} Jobs</p>
                             </div>
                             <FaArrowRight className={`text-primary ${index === 0 ? 'block' : 'hidden'} group-hover:block`} />
                         </li>
+                        </Link>
                     ))}
                 </ul>
             </div>
