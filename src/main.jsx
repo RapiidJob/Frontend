@@ -34,7 +34,7 @@ const router = createBrowserRouter(
           <Route path="/dashboard" element={<DashboardScreen />} />
         </Route>
       </Route>
-      <Route path="" element={PrivateRoute}>
+      <Route path="" element={<PrivateRoute/>}>
         <Route path="" element={<screen.Layout />}>
           <Route path="/findJob" element={<screen.FindJob />} />
         </Route>
