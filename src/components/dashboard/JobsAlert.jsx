@@ -3,10 +3,13 @@ import { IoBagRemoveOutline, IoLocationOutline } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 
 const JobsAlert = () => {
   return (
-    <main className="flex-1 p-6 bg-white">
+    <>
+    <Header/>
+    <main className="flex-1 p-6 bg-white mt-40">
       <div className="mb-6">
         <h1 className="text-3xl font-semibold">Hello, Fahmi Dinsefa</h1>
         <p className="text-gray-600">
@@ -273,6 +276,7 @@ const JobsAlert = () => {
         </table>
       </div>
     </main>
+    </>
   );
 };
 

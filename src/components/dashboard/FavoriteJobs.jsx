@@ -1,8 +1,13 @@
+import Header from "./Header";
 
 const FavoriteJobs = () => {
   return (
-    <div>FavoriteJobs</div>
-  )
-}
+    <>
+      <Header />
+      <div className="mt-40"
+      >FavoriteJobs</div>
+    </>
+  );
+};
 
-export default FavoriteJobs
+export default FavoriteJobs;

@@ -1,3 +1,5 @@
+import Header from "./Header";
+
 // src/components/Overview.jsx
 const jobs = [
   { title: 'Electrician', type: 'Task', remaining: '27 days remaining', status: 'Active', applications: 98 },
@@ -9,7 +11,9 @@ const jobs = [
 
 const Overview = () => {
   return (
-    <div className="container mx-auto p-4">
+    <>
+    <Header/>
+    <div className="container mx-auto p-4 mt-40">
       <h1 className="text-2xl font-bold mb-4">Hello, ASTU</h1>
       <p className="mb-4">Here is your daily activities and applications</p>
 
@@ -66,6 +70,7 @@ const Overview = () => {
         </tbody>
       </table>
     </div>
+    </>
   );
 };
 

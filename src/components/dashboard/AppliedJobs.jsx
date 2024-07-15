@@ -1,15 +1,16 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { useSelector } from "react-redux";
+import Header from "./Header";
 
 const AppliedJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
   const user = useSelector((state) => state.auth.user);
   const endpoint = "https://rapidjob-backend.onrender.com/api/application/user_applications/";
-
+  console.log(user)
   useEffect(() => {
     const fetchJobs = async () => {
       try {
@@ -30,7 +31,9 @@ const AppliedJobs = () => {
   }, []);
 
   return (
-    <main className="flex-1 p-6 bg-white">
+    <>
+    <Header/>
+    <main className="flex-1 p-6 bg-white mt-40">
       <div className="mb-6">
         <h1 className="text-3xl font-semibold">Applied Jobs ({jobs.length})</h1>
       </div>
@@ -120,6 +123,7 @@ const AppliedJobs = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 

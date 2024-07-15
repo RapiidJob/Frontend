@@ -2,10 +2,13 @@
 import { CiGlobe } from "react-icons/ci";
 import { IoPersonCircleOutline, IoSettingsOutline,IoPersonOutline } from "react-icons/io5"
 import { NavLink, Outlet } from 'react-router-dom';
+import Header from "./Header";
 
 const Settings = () => {
   return (
-    <div className="container mx-auto p-4">
+    <>
+    <Header/>
+    <div className="container mx-auto p-4 mt-40">
       <h1 className="text-2xl font-bold mb-4">Setting</h1>
       <nav className="flex space-x-4 border-b pb-2">
         <NavLink to="personal" className={({ isActive }) => isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-500'}>
@@ -25,6 +28,7 @@ const Settings = () => {
         <Outlet />
       </div>
     </div>
+    </>
   );
 };
 
