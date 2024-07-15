@@ -17,6 +17,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import screen from "./screens/index.js";
 import NotFoundScreen from "./screens/NotFoundScreen.jsx";
 import DashboardScreen from "./screens/DashboardScreen.jsx";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -36,9 +37,11 @@ const router = createBrowserRouter(
       </Route>
       <Route path="" element={<PrivateRoute/>}>
         {/* <Route path="" element={<screen.Layout />}> */}
-        <Route path="/findJob" element={<screen.FindJob />} />
         {/* </Route> */}
       </Route>
+        <Route path="/findJob" element={<screen.FindJob />} />
+        <Route path="/findJob/detail" element={<screen.JobDetailScreen />} />
+
       {/* Catch all other routes */}
       <Route path="*" element={<NotFoundScreen />} /> {/* Add the 404 route */}
     </Route>

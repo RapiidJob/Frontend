@@ -3,8 +3,9 @@ import { FiSearch, FiMapPin, FiMap } from 'react-icons/fi';
 import { CiGrid41, CiGrid2H } from "react-icons/ci";
 import axios from 'axios';
 import Header from '../components/dashboard/Header';
-
-
+import { useDispatch } from 'react-redux';
+import {changeJobDetail} from '../features/jobs/jobDetailSlice'
+import { useNavigate } from 'react-router-dom';
 const FindJob = () => {
   const [display, setDisplay] = useState(true);
   const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -15,8 +16,8 @@ const FindJob = () => {
   const [locationEnabled, setLocationEnabled] = useState(false);
   const [userLocation, setUserLocation] = useState({ latitude: null, longitude: null });
   const [endpoint, setEndPoint] = useState(`${import.meta.env.VITE_API_BASE_URL}/jobs/list?limit=${itemsPerPage}`);
-
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() =>{
     locationEnabled && setEndPoint(`${import.meta.env.VITE_API_BASE_URL}/jobs/search_by_location/?limit=${itemsPerPage}&latitude=${userLocation.latitude}&longitude=${userLocation.longitude}`);
   },
@@ -65,6 +66,12 @@ const FindJob = () => {
   const handleToggle = () => {
     setLocationEnabled(!locationEnabled);
   };
+
+  const handleJobDetail = (data) => {
+    dispatch(changeJobDetail(data))
+    console.log(data)
+    navigate('/findjob/detail')
+  }
 
   return (
     <>
@@ -142,7 +149,7 @@ const FindJob = () => {
           <>
             <div className={`grid gap-4 ${display ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
               {jobs.slice(0, itemsPerPage).map(job => (
-                <div key={job.id} className="p-4 border hover:border-primary rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <div key={job.id} onClick = {()=>handleJobDetail(job)} className="p-4 border hover:border-primary cursor-pointer rounded-lg shadow-sm hover:shadow-md transition-shadow">
                   <div className='flex items-center gap-4'>
                     <img src={job.posted_by.profile_image} alt='avatar' className='h-10 w-10 rounded-full' />
                     <div>
