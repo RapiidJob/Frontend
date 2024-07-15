@@ -21,6 +21,8 @@ const LoginScreen = () => {
     if (isLoggedIn) {
       navigate("/");
     }
+      dispatch(setLoading(false));
+    
   }, [isLoggedIn, navigate]);
 
   const handleLogin = async (e) => {
@@ -41,7 +43,17 @@ const LoginScreen = () => {
       console.log(user)
       navigate("/");
     } catch (error) {
-      setError(JSON.stringify(error.response.data.errors));
+      const errors = error.response.data.errors;
+      if (errors.email){
+        setError(error.response.data.errors.email[0])
+      }
+      if (errors.password){
+        setError(error.response.data.errors.password[0])
+      }
+      if (errors.non_field_errors){
+        setError(error.response.data.errors.non_field_errors[0])
+      }
+      // setError(JSON.stringify(error.response.data.errors));
       dispatch(setLoading(false));
     }
   };

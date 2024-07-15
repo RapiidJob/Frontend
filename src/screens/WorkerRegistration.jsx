@@ -9,7 +9,7 @@ import { setLoading, setError } from "../features/auth/authSlice";
 const WorkerRegistration = () => {
   const BaseUrl = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate();
-  const [error, setErrorLocal] = useState("");
+  const [error, setError] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -23,17 +23,18 @@ const WorkerRegistration = () => {
   const isLoading = useSelector((state) => state.auth.loading);
 
   const handleRegistration = async (e) => {
+    if (isLoading) return;
     console.log("clicked")
     e.preventDefault(); // Prevent form submission for manual handling
 
     // Client-side validation to ensure all fields are filled
     if (!name || !middleName || !lastName || !email || !phoneNumber || !password || !confirmPassword) {
-      setErrorLocal("Please fill in all fields.");
+      setError("Please fill in all fields.");
       return;
     }
 
     if (password !== confirmPassword) {
-      setErrorLocal("Password does not match");
+      setError("Password does not match");
       return;
     }
 
@@ -59,7 +60,14 @@ const WorkerRegistration = () => {
       console.log(res.data);
       navigate("/login");
     } catch (error) {
-      dispatch(setError(JSON.stringify(error.response.data)));
+      const errors = error.response.data.errors;
+      let errorMessages = "";
+
+      Object.keys(errors).forEach((key) => {
+        errorMessages += `${errors[key][0]} `;
+      });
+      setError(errorMessages);
+      // dispatch(setError(JSON.stringify(error.response.data)));
     } finally {
       dispatch(setLoading(false)); // Reset loading state after request completes
     }
