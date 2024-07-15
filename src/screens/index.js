@@ -5,6 +5,8 @@ import Layout from "./Layout";
 import FindJob from "./FindJob";
 import WorkerRegistration from "./WorkerRegistration";
 import JobDetailScreen from "./JobDetailScreen";
+import DashboardScreen from "./DashboardScreen";
+import NotFoundScreen from './NotFoundScreen';
 const screen = {
     HomeScreen: HomeScreen,
     LoginScreen: LoginScreen,
@@ -12,6 +14,9 @@ const screen = {
     WorkerRegistration,
     Layout,
     JobDetailScreen,
-    FindJob
+    FindJob,
+    DashboardScreen,
+    NotFoundScreen
+    
 }
 export default screen;
