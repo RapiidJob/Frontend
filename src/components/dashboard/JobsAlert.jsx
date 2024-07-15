@@ -6,6 +6,7 @@ import { IoBagRemoveOutline, IoLocationOutline } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { setError } from "../../features/auth/authSlice";
 
 const JobsAlert = () => {
   const [appliedJobs, setAppliedJobs] = useState([]);
@@ -15,7 +16,9 @@ const JobsAlert = () => {
   const appliedJobsUrl = "https://rapidjob-backend.onrender.com/api/application/user_applications/";
 
   useEffect(() => {
+    dispatchEvent(setError(False));
     console.log(user)
+    dis
     const fetchAppliedJobs = async () => {
       const token = localStorage.getItem("token");
       try {
