@@ -12,7 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage'
 import authReducer from '../features/auth/authSlice'
 import jobsReducer from '../features/jobs/jobSlice'
-
+import jobDetailReducer from '../features/jobs/jobDetailSlice'
 const persistConfig = {
   key: 'root',
   storage,
@@ -25,6 +25,7 @@ const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     jobs: persistedJobsReducer,
+    jobDetail: jobDetailReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
