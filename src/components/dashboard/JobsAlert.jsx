@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FaRegBookmark } from "react-icons/fa";
 import { IoBagRemoveOutline, IoLocationOutline } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
@@ -13,12 +13,13 @@ const JobsAlert = () => {
   const [favouriteJobs, setFavouriteJobs] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
   const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+
   const appliedJobsUrl = "https://rapidjob-backend.onrender.com/api/application/user_applications/";
 
   useEffect(() => {
-    dispatchEvent(setError(False));
     console.log(user)
-    dis
+    
     const fetchAppliedJobs = async () => {
       const token = localStorage.getItem("token");
       try {
@@ -89,12 +90,18 @@ const JobsAlert = () => {
             className="w-12 h-12 rounded-full mr-4"
           />
           <div>
+          {
+            !user.user.has_specialised_profile &&
+            <>
             <h3 className="text-white font-semibold">
               Your profile editing is not completed.
             </h3>
+          
             <p className="text-white">
               Complete your profile editing & build your custom Resume
             </p>
+            </>
+          }
           </div>
           <button className="ml-auto bg-white text-red-500 font-semibold py-2 px-4 rounded">
             Edit Profile <span className="text-xl">&rarr;</span>
