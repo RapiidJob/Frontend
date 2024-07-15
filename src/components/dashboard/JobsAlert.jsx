@@ -1,23 +1,20 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import  { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { FaRegBookmark } from "react-icons/fa";
 import { IoBagRemoveOutline, IoLocationOutline } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import Header from "./Header";
-=======
-import { setError } from "../../features/auth/authSlice";
->>>>>>> 894f8f2405d4909f87cce438cde411901b543e48
+// import { setError } from "../../features/auth/authSlice";
 
 const JobsAlert = () => {
   const [appliedJobs, setAppliedJobs] = useState([]);
-  const [favouriteJobs, setFavouriteJobs] = useState([]);
+  // const [favouriteJobs, setFavouriteJobs] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
   const user = useSelector((state) => state.auth.user);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const appliedJobsUrl = "https://rapidjob-backend.onrender.com/api/application/user_applications/";
 
