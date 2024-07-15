@@ -26,6 +26,7 @@ const LoginScreen = () => {
   }, [isLoggedIn, navigate]);
 
   const handleLogin = async (e) => {
+    if (isLoading) return;
     e.preventDefault();
     dispatch(setLoading(true));
 
