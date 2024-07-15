@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { FiSearch, FiMapPin, FiMap } from 'react-icons/fi';
 import { CiGrid41, CiGrid2H } from "react-icons/ci";
 import axios from 'axios';
+import Header from '../components/dashboard/Header';
 
 
 const FindJob = () => {
@@ -66,6 +67,8 @@ const FindJob = () => {
   };
 
   return (
+    <>
+    <Header/>
     <div className='pt-[9rem]'>
       <header className="p-4 bg-[#F1F2F4]">
         <div className='flex justify-between'>
@@ -177,6 +180,8 @@ const FindJob = () => {
         )}
       </div>
     </div>
+    </>
+
   );
 };
 

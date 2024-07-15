@@ -9,12 +9,14 @@ import JobsAlert from "../components/dashboard/JobsAlert"
 import FavoriteJobs from "../components/dashboard/FavoriteJobs"
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
+import PostJob from "../components/dashboard/PostJob"
 const locMap = {
   "#settings":<Settings/>,
   "#overview":<Overview/>,
   "#jobalerts":<JobsAlert/>,
   "#favoritejobs":<FavoriteJobs/>,
   "#appliedjobs":<AppliedJobs/>,
+  "#jobpost":<PostJob/>
 }
 const DashboardScreen = () => {
   const path = useLocation()
@@ -26,9 +28,9 @@ const DashboardScreen = () => {
 
   return (
     <>
-    <main className="pt-[9rem] flex min-h-screen bg-gray-100" >
+    <main className="flex min-h-screen bg-gray-100" >
 
-    <Sidebar/>
+    <Sidebar />
     {/* <Main/> */}
     {data =="" ? <Overview/>:locMap[data]}
     </main>

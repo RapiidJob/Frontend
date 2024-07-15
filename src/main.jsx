@@ -30,14 +30,14 @@ const router = createBrowserRouter(
       <Route path="/worker_register" element={<screen.WorkerRegistration />} />
       {/* Registered users */}
       <Route path="" element={<PrivateRoute />}>
-        <Route path="" element={<screen.Layout />}>
+        {/* <Route path="" element={<screen.Layout />}> */}
           <Route path="/dashboard" element={<DashboardScreen />} />
-        </Route>
+        {/* </Route> */}
       </Route>
       <Route path="" element={<PrivateRoute/>}>
-        <Route path="" element={<screen.Layout />}>
-          <Route path="/findJob" element={<screen.FindJob />} />
-        </Route>
+        {/* <Route path="" element={<screen.Layout />}> */}
+        <Route path="/findJob" element={<screen.FindJob />} />
+        {/* </Route> */}
       </Route>
       {/* Catch all other routes */}
       <Route path="*" element={<NotFoundScreen />} /> {/* Add the 404 route */}
