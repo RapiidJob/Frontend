@@ -10,7 +10,7 @@ const Sidebar = () => {
   return (
     <aside className="w-full lg:w-64 mt-40 bg-white p-4 md:block flex-shrink-0 relative border-r border-gray-200 hidden ">
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold">Worker Dashboard</h2>
+        <h2 className="text-xl font-semibold text-slate-600">Candidate Dashboard</h2>
       </div>
       <nav className="space-y-2">
         <Link
