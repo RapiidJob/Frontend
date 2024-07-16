@@ -49,3 +49,6 @@ To start the development server, run the following command:
 
 ```sh
 npm  dev
+```
+## Live Project
+Check out the live project at [RapidJob](https://rapidjob.onrender.com/)
