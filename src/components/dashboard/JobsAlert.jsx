@@ -6,11 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 import { Link } from "react-router-dom";
+import Header from "./Header";
 
 const JobsAlert = () => {
   const user = useSelector((state) => state.auth.user);
   return (
-    <main className="flex-1 p-6 bg-white">
+    <>
+    <Header/>
+    <main className="flex-1 p-6 bg-white mt-40">
       <div className="mb-6">
         <h1 className="text-3xl font-semibold">Hello, {user.user.first_name} {user.user.last_name}</h1>
         <p className="text-gray-600">
@@ -277,6 +280,7 @@ const JobsAlert = () => {
         </table>
       </div>
     </main>
+    </>
   );
 };
 
