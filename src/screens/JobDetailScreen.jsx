@@ -52,7 +52,8 @@ const JobDetailScreen = () => {
                   <CiBookmark size={28} className='text-primary' />
                 </div>
                 <div className='cursor-pointer flex items-center gap-1 bg-primary h-full w-full justify-center font-semibold text-base text-white rounded'>
-                  <p>Apply Now</p>
+                  {!jobDetail.applied && <p>Apply Now</p>}
+                  {jobDetail.applied && <p>Applied</p>}
                   <FaArrowRight />
                 </div>
               </div>

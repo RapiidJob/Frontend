@@ -3,6 +3,10 @@ import  { useState, useEffect } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { useSelector } from "react-redux";
+import { changeJobDetail } from "../../features/jobs/jobDetailSlice";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import Header from "./Header";
 
 const AppliedJobs = () => {
@@ -10,6 +14,8 @@ const AppliedJobs = () => {
   const [loading, setLoading] = useState(true); // Add loading state
   const user = useSelector((state) => state.auth.user);
   const endpoint = "https://rapidjob-backend.onrender.com/api/application/user_applications/";
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   console.log(user)
   useEffect(() => {
     const fetchJobs = async () => {
@@ -87,7 +93,7 @@ const AppliedJobs = () => {
                     </span>
                   </td>
                   <td className="py-2">
-                    <button className="bg-slate-200 py-1 px-3 rounded text-blue-700 hover:bg-slate-300 hover:text-blue-800">
+                    <button onClick={() => {dispatch(changeJobDetail({...job.job, applied:true}));  navigate('/findjob/detail')}} className="bg-slate-200 py-1 px-3 rounded text-blue-700 hover:bg-slate-300 hover:text-blue-800">
                       View Details
                     </button>
                   </td>
