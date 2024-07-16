@@ -139,8 +139,8 @@ const Form = () => {
                     </div>
                 ) : (
                     <div className="flex justify-end space-x-4">
-                        <button type="button" className="bg-green-500 text-white py-2 px-4 rounded">Review Post</button>
-                        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Post Job</button>
+                        <button type="button" className="bg-green-500 text-white py-2 px-4 rounded">Review Post <span className='text-xl'>&rarr;</span> </button>
+                        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Post Job <span className='text-xl'>&rarr;</span> </button>
                     </div>
                 )}
             </form>
