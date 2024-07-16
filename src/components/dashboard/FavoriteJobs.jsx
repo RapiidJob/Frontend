@@ -5,7 +5,7 @@ const FavoriteJobs = () => {
     <>
       <Header />
       <div className="mt-40"
-      >FavoriteJobs</div>
+      >Saved Jobs</div>
     </>
   );
 };

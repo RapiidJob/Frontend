@@ -2,13 +2,17 @@ import { FaRegBookmark } from "react-icons/fa";
 import { IoBagRemoveOutline, IoLocationOutline } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { MdOutlineNotificationsActive } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+
+
 import { Link } from "react-router-dom";
 
 const JobsAlert = () => {
+  const user = useSelector((state) => state.auth.user);
   return (
     <main className="flex-1 p-6 bg-white">
       <div className="mb-6">
-        <h1 className="text-3xl font-semibold">Hello, Fahmi Dinsefa</h1>
+        <h1 className="text-3xl font-semibold">Hello, {user.user.first_name} {user.user.last_name}</h1>
         <p className="text-gray-600">
           Here is your daily activities and job alerts
         </p>

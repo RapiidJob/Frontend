@@ -35,7 +35,7 @@ const AppliedJobs = () => {
     <Header/>
     <main className="flex-1 p-6 bg-white mt-40">
       <div className="mb-6">
-        <h1 className="text-3xl font-semibold">Applied Jobs ({jobs.length})</h1>
+        <h1 className="text-3xl font-semibold">My Applications ({jobs.length})</h1>
       </div>
       {loading ? (
         <div className="flex justify-center items-center h-64">
