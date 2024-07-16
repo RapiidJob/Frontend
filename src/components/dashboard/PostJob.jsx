@@ -5,7 +5,7 @@ const PostJob = () => {
   return (
     <>
       <Header ispost={true} />
-      <main className="mt-40">
+      <main className="mt-40 w-full">
         {/* <Subscription /> */}
         <Form/>
       </main>

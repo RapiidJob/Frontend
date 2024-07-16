@@ -8,7 +8,7 @@ import { CiBookmark } from "react-icons/ci";
 import { RiHandbagLine } from "react-icons/ri";
 const Sidebar = () => {
   return (
-    <aside className="w-full lg:w-64 mt-40 bg-white p-4 md:block flex-shrink-0 relative border-r border-gray-200 hidden ">
+    <aside className="w-1/4 mt-40 bg-white p-4 md:block flex-shrink-0 relative border-r border-gray-200 hidden ">
       <div className="mb-8">
         <h2 className="text-xl font-semibold text-slate-600">Candidate Dashboard</h2>
       </div>
