@@ -5,8 +5,18 @@ import { Link } from "react-router-dom";
 import {  FaSignOutAlt } from "react-icons/fa";
 import { GoStack } from "react-icons/go";
 import { CiBookmark } from "react-icons/ci";
+import { useDispatch } from "react-redux";
 import { RiHandbagLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom"; 
 const Sidebar = () => {
+
+  const handleLogout = ()=>{
+    localStorage.clear();
+    // navigate('/login')
+    window.location.reload();
+    
+    
+  }
   return (
     <aside className="w-1/4 mt-40 bg-white p-4 md:block flex-shrink-0 relative border-r border-gray-200 hidden ">
       <div className="mb-8">
@@ -58,8 +68,8 @@ const Sidebar = () => {
       </nav>
       <div className="absolute bottom-4 w-full">
         <Link
-          to="/logout"
-          className="flex items-center p-2 text-red-600 hover:text-red-800 hover:bg-gray-100 rounded"
+          className="flex items-center p-2 text-red-600 hover:text-red-800 hover:bg-gray-100 rounded "
+          onClick={handleLogout}
         >
           <FaSignOutAlt className="mr-2" />
           Log out
