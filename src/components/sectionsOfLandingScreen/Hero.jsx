@@ -3,8 +3,9 @@ import people from "../../assets/landingPage/peopleGraphics.png";
 import { FaPlus } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import telegramIcon from '../../assets/socialIcons/telegram.svg';
-
+import { useNavigate } from "react-router-dom";
 const Hero = ({ id }) => {
+  const navigate = useNavigate()
   return (
     <section id={id} className="bg-primary pb-[1rem] flex justify-between h-[100%]">
         <div className="flex flex-col justify-evenly items-center w-[100%] gap-[1rem]">
@@ -40,11 +41,11 @@ const Hero = ({ id }) => {
               <button className="bg-white text-[#275ED9] text-[20px] w-[80%] pt-[0.5rem] pb-[0.5rem] font-bold">Post a Job</button>
             </div>
             <div className="flex flex-col items-start justify-center gap-[1rem]">
-              <div className="flex text-[21px] items-center gap-3">
-                <CiSearch style={{ color: 'white' }} className="" /> <p>Find a Job</p>
+              <div className="flex text-[21px] items-center gap-3" onClick={()=>navigate('/findjob')}>
+                <CiSearch style={{ color: 'white' }} className=""  /> <p>Find a Job</p>
               </div>
               <p>Discover Your Next Opportunity Today</p>
-              <button className="bg-white text-[#275ED9] text-[20px] w-[80%] pt-[0.5rem] pb-[0.5rem] font-bold">Find a Job</button>
+              <button  onClick={()=>navigate('/findjob')} className="bg-white text-[#275ED9] text-[20px] w-[80%] pt-[0.5rem] pb-[0.5rem] font-bold">Find a Job</button>
             </div>
           </div>
         </div>
